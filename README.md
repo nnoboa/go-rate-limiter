@@ -14,9 +14,10 @@ A high-performance rate limiting service built to handle distributed traffic.
 - **Prometheus/Grafana**: Full observability suite.
 
 ## Getting Started
-1. `docker-compose up --build`
+1. `docker compose up --build`
 2. Access the API at `localhost:8080`
 3. View metrics at `localhost:3000` (admin/admin)
 
 ## Further Work
 - Track access requests by user ID / token, rather than IP.
+- Return rate limit, requests left, and window remaining to user.
