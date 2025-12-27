@@ -13,6 +13,22 @@ A high-performance rate limiting service built to handle distributed traffic.
 - **Docker & Compose**: Full containerization for both the app and monitoring stack.
 - **Prometheus/Grafana**: Full observability suite.
 
+## Performance & Benchmarking
+The service was validated and load-tested using `hey` with 50 concurrent workers sending 1,000 requests.
+
+### Test Configuration
+- Limit: 5 requests per minute per IP
+- Concurrency: 50 simultaneous workers
+- Total Requests: 1,000
+
+### Results
+|Metric | Value|
+|---|---|
+|Throughput | 6,183.11 req/sec|
+|P50 Latency | 2.3ms|
+|P99 Latency | 85.9ms|
+|Accuracy | 100% (5 allowed, 995 blocked)|
+
 ## Getting Started
 1. `docker compose up --build`
 2. Access the API at `localhost:8080`
@@ -20,4 +36,4 @@ A high-performance rate limiting service built to handle distributed traffic.
 
 ## Further Work
 - Track access requests by user ID / token, rather than IP.
-- Return rate limit, requests left, and window remaining to user.
+- Return rate limit, requests left, and remaining time in window until reset to user.
